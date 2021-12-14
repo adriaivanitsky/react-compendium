@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getPokemon();
-      setPokemon(data);
+      setPokemon(data.results);
       setLoading(false);
     };
     fetchData();
