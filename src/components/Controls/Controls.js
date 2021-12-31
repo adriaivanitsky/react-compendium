@@ -1,4 +1,4 @@
-export default function Controls({ search, setSearch }) {
+export default function Controls({ search, setSearch, sort, setSort }) {
   return (
     <div>
       <input
@@ -7,6 +7,8 @@ export default function Controls({ search, setSearch }) {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       ></input>
+      <select value={sort} onChange={(e) => setSort(e.target.value)}></select>
+      <option></option>
     </div>
   );
 }

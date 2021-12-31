@@ -8,6 +8,7 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const [sort, setSort] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <h1>Pokemon List</h1>
-      <Controls search={search} setSearch={setSearch} />
+      <Controls search={search} setSearch={setSearch} sort={sort} setSort={setSort} />
       <PokeList pokemonList={pokemon} />
     </div>
   );
