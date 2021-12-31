@@ -7,8 +7,10 @@ export default function Controls({ search, setSearch, sort, setSort }) {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       ></input>
-      <select value={sort} onChange={(e) => setSort(e.target.value)}></select>
-      <option></option>
+      <select value={sort} onChange={(e) => setSort(e.target.value)}>
+        <option value="asc">ascending</option>
+        <option value="desc">descending</option>
+      </select>
     </div>
   );
 }

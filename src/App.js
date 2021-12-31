@@ -8,16 +8,16 @@ function App() {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
-  const [sort, setSort] = useState('');
+  const [sort, setSort] = useState('asc');
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getPokemon(search);
+      const data = await getPokemon(search, sort);
       setPokemon(data.results);
       setLoading(false);
     };
     fetchData();
-  }, [search]);
+  }, [search, sort]);
   if (loading) return <h1>Loading...</h1>;
   return (
     <div className="App">
