@@ -9,8 +9,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('asc');
-  const [types, setTypes] = useState(''); //types is an array of 18 types of pokemon
-  const [selectedType, setSelectedType] = useState(''); //selectedType is whichever type the user chooses
+  const [types, setTypes] = useState([]);
+  const [selectedType, setSelectedType] = useState('');
 
   useEffect(() => {
     const fetchPokemon = async () => {

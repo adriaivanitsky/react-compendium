@@ -14,7 +14,5 @@ export async function getPokemon(search, sort, chosenType) {
 export async function getTypes() {
   const response = await fetch(`https://pokedex-alchemy.herokuapp.com/api/pokedex/types`);
   const data = await response.json();
-  return data.map((banana) => {
-    banana.type;
-  });
+  return data.map((banana) => banana.type);
 }
