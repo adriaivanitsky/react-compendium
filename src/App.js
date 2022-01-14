@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import { getPokemon } from './services/pokemon';
+import { getPokemon, getTypes } from './services/pokemon';
 import PokeList from './components/PokeList/PokeList';
 import Controls from './components/Controls/Controls';
 
@@ -9,15 +9,26 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('asc');
+  const [types, setTypes] = useState(''); //types is an array of 18 types of pokemon
+  const [selectedType, setSelectedType] = useState(''); //selectedType is whichever type the user chooses
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchPokemon = async () => {
       const data = await getPokemon(search, sort);
       setPokemon(data.results);
       setLoading(false);
     };
-    fetchData();
+    fetchPokemon();
   }, [search, sort]);
+
+  useEffect(() => {
+    const fetchTypes = async () => {
+      const data = await getTypes();
+      setTypes(data);
+    };
+    fetchTypes();
+  }, []);
+
   if (loading) return <h1>Loading...</h1>;
   return (
     <div className="App">
