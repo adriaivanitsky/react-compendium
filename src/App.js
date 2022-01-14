@@ -10,16 +10,16 @@ function App() {
   const [search, setSearch] = useState('');
   const [sort, setSort] = useState('asc');
   const [types, setTypes] = useState([]);
-  const [selectedType, setSelectedType] = useState('');
+  const [selectedType, setSelectedType] = useState('all');
 
   useEffect(() => {
     const fetchPokemon = async () => {
-      const data = await getPokemon(search, sort);
+      const data = await getPokemon(search, sort, selectedType);
       setPokemon(data.results);
       setLoading(false);
     };
     fetchPokemon();
-  }, [search, sort]);
+  }, [search, sort, selectedType]);
 
   useEffect(() => {
     const fetchTypes = async () => {
