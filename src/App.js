@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <h1>Pokemon List</h1>
-      <Controls search={search} setSearch={setSearch} sort={sort} setSort={setSort} />
+      <Controls {...{ search, setSearch, sort, setSort, selectedType, setSelectedType, types }} />
       <PokeList pokemonList={pokemon} />
     </div>
   );
